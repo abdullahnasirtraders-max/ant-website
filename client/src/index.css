@@ -1,0 +1,50 @@
+@import '@fontsource/poppins/300.css';
+@import '@fontsource/poppins/400.css';
+@import '@fontsource/poppins/500.css';
+@import '@fontsource/poppins/600.css';
+@import '@fontsource/poppins/700.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { background: #efeeea; color: #17191a; -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body { @apply font-sans antialiased; overflow-x: clip; }
+  :focus-visible { outline: 1px solid #17191a; outline-offset: 3px; }
+  ::selection { background: #17191a; color: #efeeea; }
+  img { -webkit-user-drag: none; }
+}
+
+@layer components {
+  .eyebrow { @apply text-[10.5px] font-medium uppercase tracking-[0.2em] text-steel; }
+  .h-section { @apply text-[clamp(1.75rem,3.3vw,2.75rem)] font-semibold uppercase leading-[1.04] tracking-[-0.01em]; }
+  .display { @apply font-semibold uppercase leading-[0.98] tracking-tight; }
+  .btn { @apply inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-[11px] font-medium uppercase tracking-[0.14em] transition-colors duration-200 disabled:pointer-events-none disabled:opacity-40; }
+  .btn-primary { @apply btn bg-ink text-paper hover:bg-ink/80; }
+  .btn-outline { @apply btn border border-ink/35 text-ink hover:border-ink hover:bg-ink hover:text-paper; }
+  .btn-light { @apply btn bg-paper text-ink hover:bg-white; }
+  .arrow-link { @apply inline-flex items-center gap-2 border-b border-ink/50 pb-0.5 text-[10.5px] font-semibold uppercase tracking-[0.14em] transition-colors hover:border-ink; }
+  .field { @apply w-full border border-line bg-transparent px-3.5 py-3 text-[13px] outline-none transition-colors placeholder:text-steel/70 focus:border-ink; }
+  .field-error { @apply mt-1 text-xs text-red-700; }
+  .label { @apply mb-1.5 block text-[10.5px] font-medium uppercase tracking-[0.14em] text-steel; }
+  .product-plate { position: relative; background: #e5e4df; overflow: hidden; }
+}
+
+/* ---------- Admin dashboard theme (scoped; storefront is unaffected) ---------- */
+.admin .btn { border-radius: .75rem; padding: .6rem 1.15rem; font-size: 13px; letter-spacing: 0; text-transform: none; font-weight: 500; transition: transform .15s, background-color .15s, box-shadow .15s, color .15s; }
+.admin .btn:hover { transform: translateY(-1px); }
+.admin .btn-primary { background: #6d5efc; color: #fff; box-shadow: 0 8px 16px -8px rgba(109,94,252,.7); }
+.admin .btn-primary:hover { background: #5b4bf0; }
+.admin .btn-outline { background: #fff; border: 1px solid #e2e8f0; color: #334155; }
+.admin .btn-outline:hover { background: #f8fafc; border-color: #cbd5e1; color: #0f172a; }
+.admin .btn-mint { background: #16c79a; color: #fff; box-shadow: 0 8px 16px -8px rgba(22,199,154,.7); } .admin .btn-mint:hover { background: #0fb589; }
+.admin .btn-sky { background: #e8f2ff; color: #1d6fd6; } .admin .btn-sky:hover { background: #3b9cff; color: #fff; }
+.admin .btn-amber { background: #fff4d6; color: #a15c00; } .admin .btn-amber:hover { background: #ffb020; color: #3a2a00; }
+.admin .btn-rose { background: #fff1f2; color: #e11d48; border: 1px solid #fecdd3; } .admin .btn-rose:hover { background: #e11d48; color: #fff; border-color: #e11d48; }
+.admin .field { border-radius: .75rem; border-color: #e2e8f0; background: #fff; font-size: 13.5px; }
+.admin .field:focus { border-color: #6d5efc; box-shadow: 0 0 0 3px rgba(109,94,252,.15); }
+.admin .label { text-transform: none; letter-spacing: 0; font-size: 12px; color: #64748b; font-weight: 500; }
+.admin .field-error { color: #e11d48; }
+.admin input[type='checkbox'], .admin input[type='radio'] { accent-color: #6d5efc; }
+.admin ::selection { background: #6d5efc; color: #fff; }
+.admin :focus-visible { outline: 2px solid #6d5efc; outline-offset: 2px; }

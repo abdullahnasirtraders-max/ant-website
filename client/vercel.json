@@ -1,0 +1,7 @@
+{
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "https://YOUR-RAILWAY-APP.up.railway.app/api/:path*" },
+    { "source": "/sitemap.xml", "destination": "https://YOUR-RAILWAY-APP.up.railway.app/sitemap.xml" },
+    { "source": "/((?!assets/|placeholders/|robots.txt|favicon.svg).*)", "destination": "/index.html" }
+  ]
+}
