@@ -77,7 +77,7 @@ export default function Layout() {
           <div className="flex items-center gap-5 text-paper/80">
             {settings.phone && <a href={`tel:${settings.phone}`} className="text-[11px] tracking-wide hover:text-paper">{settings.phone}</a>}
             <Link to="/cart" aria-label="Cart"><ShoppingBag size={16} strokeWidth={1.5} /></Link>
-            <Link to={inquire.href} className="flex items-center gap-2 text-[10.5px] font-medium uppercase tracking-[0.16em] hover:text-paper"><WhatsAppIcon size={15} />Inquire</Link>
+            <Link to={inquire.href} className="flex items-center gap-2 text-[10.5px] font-medium uppercase tracking-[0.16em] hover:text-paper"><WhatsAppIcon size={15} />Inquire </Link><a className='text-[12px]' href='/admin/login' target="_blank" rel="noopener noreferrer" >Admin Portal</a>
           </div>
         </div>
         <div className="border-t border-paper/10"><div className="mx-auto flex max-w-[1360px] flex-col justify-between gap-2 px-5 py-5 text-[12px] text-paper/50 md:flex-row md:px-12">
