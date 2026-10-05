@@ -1,6 +1,6 @@
 import { LayoutDashboard, LogOut, Megaphone, Menu, Package, Settings as Cog, ShoppingBag, SquareArrowOutUpRight, X } from 'lucide-react';
 import { FormEvent, useEffect, useState } from 'react';
-import { NavLink, Route, Routes } from 'react-router-dom';
+import { NavLink, Route, Routes, useNavigate } from 'react-router-dom';
 import { api, ApiError } from '../lib/api';
 import { AnnouncementsAdmin, SettingsAdmin } from './MiscAdmin';
 import OrdersAdmin from './OrdersAdmin';
@@ -19,10 +19,12 @@ const links = [
 ] as const;
 
 function Login({ onDone }: { onDone: () => void }) {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState(''); const [password, setPassword] = useState(''); const [err, setErr] = useState(''); const [busy, setBusy] = useState(false);
   const submit = async (e: FormEvent) => {
     e.preventDefault(); setBusy(true); setErr('');
-    try { await api.post('/auth/login', { email, password }, true); onDone(); } catch (x) { setErr((x as ApiError).message); } finally { setBusy(false); }
+    try { await api.post('/auth/login', { email, password }, true); onDone(); navigate('/admin', { replace: true }); } catch (x) { setErr((x as ApiError).message); } finally { setBusy(false); }
   };
   return (
     <div className="admin grid min-h-screen place-items-center bg-white px-5">
@@ -79,7 +81,8 @@ export default function AdminApp() {
       </div>
       {open && (
         <div className="fixed inset-0 z-40 md:hidden"><div className="absolute inset-0 bg-slate-900/30" onClick={() => setOpen(false)} />
-          <aside className="absolute inset-y-0 left-0 w-72 bg-white p-4 shadow-xl"><button className="absolute right-4 top-4" onClick={() => setOpen(false)} aria-label="Close menu"><X size={20} /></button>{sidebar}</aside></div>
+          <aside className="absolute inset-y-0 left-0 w-72 bg-white p-4 shadow-xl"><button className="absolute right-4 top-4" onClick={() => setOpen(false)} aria-label="Close menu"><X size={20} /></button>{sidebar}</aside>
+        </div>
       )}
       <main className="px-4 py-8 md:ml-64 md:px-10 md:py-10">
         <div className="mx-auto max-w-[1100px]">
