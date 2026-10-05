@@ -9,8 +9,12 @@ async function request<T>(path: string, init: RequestInit = {}, admin = false): 
   const headers: Record<string, string> = { Accept: 'application/json' };
   if (init.body && !(init.body instanceof FormData)) headers['Content-Type'] = 'application/json';
   if (admin) headers['x-ant-csrf'] = '1';
-  const res = await fetch(BASE + path, { ...init, headers, credentials: 'include' });
-  const data = await res.json().catch(() => null);
+const res = await fetch(BASE + path, {
+  ...init,
+  headers,
+  credentials: 'include',
+  cache: 'no-store',
+});  const data = await res.json().catch(() => null);
   if (!res.ok) throw new ApiError(data?.message || 'Request failed', res.status, data?.details);
   return data as T;
 }

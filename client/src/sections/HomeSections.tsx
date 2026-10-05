@@ -109,7 +109,7 @@ export function BrandsStrip() {
   return (
     <section className={`${wrap} flex flex-col gap-8 py-10 md:flex-row md:items-center md:justify-between`} aria-label="Brands and applications">
       <div className="flex flex-col gap-5 md:flex-row md:items-center md:gap-14">
-        <p className="eyebrow max-w-[9rem] !leading-relaxed">Trusted brands &amp; applications</p>
+        <p className="eyebrow max-w-[9rem] !leading-relaxed">Proud Local-made products.</p>
         <ul className="flex flex-wrap items-center gap-x-12 gap-y-4">{brandsStrip.map((b) => <li key={b} className="text-xl font-bold uppercase tracking-[0.04em] text-steel/80">{b}</li>)}</ul>
       </div>
       <p className="eyebrow max-w-[11rem] !leading-relaxed md:border-l md:border-line md:pl-10">{tagline}</p>
